@@ -1,0 +1,61 @@
+@import "./src/assets/scss/style";
+
+$icon_size: 80px;
+.focus-items-wrapper {
+  margin-bottom: 2.5rem;
+
+  > .frow {
+    > div {
+      .focus-item {
+        margin-bottom: 1.5rem;
+
+        .icon {
+          margin: 0 auto 1rem;
+          text-align: center;
+          @include transition(all .2s ease);
+
+          > i {
+            color: $base_color;
+            font-size: 2.5rem;
+            display: flex;
+            height: 100%;
+            justify-content: center;
+            align-items: center;
+          }
+        }
+
+        > h3 {
+          display: block;
+          text-align: center;
+          margin: 0 0 .5rem;
+          font-weight: 500;
+        }
+
+        > p {
+          font-size: 16px;
+          margin: 0;
+          text-align: center;
+        }
+
+        &:hover {
+          .icon {
+            @include zoom(1.2);
+          }
+        }
+
+        @include breakpoint($size_tablet) {
+          padding: 0 7.5px;
+          margin-right: 7.5px;
+          margin-left: 7.5px;
+          margin-bottom: 0;
+        }
+      }
+
+      &:last-child {
+        .focus-item {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+}

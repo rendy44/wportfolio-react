@@ -1,0 +1,51 @@
+// Import config.
+@import "style";
+// Import library.
+@import "node_modules/frow/frow";
+// Import google font.
+@import url("https://fonts.googleapis.com/css?family=Baloo+2:400,500,600|Dancing+Script:700&display=swap");
+
+html {
+  scroll-behavior: smooth;
+}
+
+*,
+:after,
+:before {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Baloo 2', cursive;
+  color: $black_text_color
+}
+
+p {
+  line-height: 1.4;
+}
+
+a {
+  text-decoration: none;
+
+  &:hover,
+  &:active,
+  &:focus {
+    text-decoration: none;
+  }
+}
+
+.center-content {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+
+@include breakpoint($size_tablet) {
+  h1 {
+    font-size: 3rem;
+  }
+  h2 {
+    font-size: 2rem;
+  }
+}

@@ -1,0 +1,62 @@
+@import "./src/assets/scss/style";
+
+.experience-items-wrapper {
+  margin-top: 1.5rem;
+
+  .experience-item {
+    display: flex;
+    padding: 1rem 7.5px;
+    align-items: center;
+    border: 1px solid transparent;
+    margin-bottom: 1rem;
+    @include border-radius(4px);
+    @include transition(all .2s ease);
+
+    .company-logo {
+      width: 80%;
+      max-width: 80px;
+      height: 40px;
+      margin-right: 1rem;
+      @include cover(contain);
+    }
+
+    .experience-detail {
+      > h3.company-name {
+        margin: 0 0 .5rem;
+        display: block;
+        font-weight: 500;
+
+        a.company-url {
+          font-size: 12px;
+          color: $base_color;
+          font-weight: 400;
+        }
+      }
+
+      > span.experience-role {
+        display: block;
+        font-weight: 500;
+      }
+
+      > span.company-location {
+        display: block;
+        margin-bottom: .25rem;
+      }
+
+      > span.experience-period {
+        display: block;
+        font-size: 14px;
+        color: $black_text_alt_color;
+      }
+    }
+
+    @include breakpoint($size_tablet) {
+      margin: 0 7.5px 0;
+    }
+
+    &:hover {
+      border-color: rgba($black_color, .1);
+      @include box-shadow();
+    }
+  }
+}
