@@ -1,12 +1,11 @@
 import React from "react";
 import './style.scss'
-import ReactLoading from 'react-loading';
 import Masthead from "../../global/masthead/Masthead";
 import Section from "../../global/section/Section";
 import Button from "../../global/button/Button";
 import {Specialization, SpecializationItem} from "../../front-page/specialization/Specialization";
 import {Experience, ExperienceItem} from "../../front-page/experience/Experience";
-import {Project, ProjectItem} from "../../front-page/project/Project";
+import {Project} from "../../front-page/project/Project";
 import GithubApi from "../../../class/GithubApi";
 
 class FrontPage extends React.Component {
@@ -14,44 +13,13 @@ class FrontPage extends React.Component {
     constructor(props) {
         super(props);
 
+        // Define default states.
         this.state = {
-            isProjectsLoaded: false,
-            githubApi: new GithubApi(),
-            projects: [],
+            githubApi: new GithubApi('rendy44', process.env.REACT_APP_GITHUB_KEY)
         }
-    }
-
-    componentDidMount() {
-        const comp = this;
-        this.state.githubApi.getPinnedRepos()
-            .then(response => response.text())
-            .then(result => {
-                let resultObj = JSON.parse(result);
-
-                //Update state.
-                comp.setState({
-                    isProjectsLoaded: true,
-                    projects: resultObj.data.repositoryOwner.pinnedRepositories.edges
-                });
-            })
-            .catch(error => console.log('error', error));
     }
 
     render() {
-        const {projects, isProjectsLoaded} = this.state;
-        let projectContent = <div className='center-content'>
-            <ReactLoading color='#a53484'/>
-        </div>;
-
-        // Modify project content.
-        if (isProjectsLoaded) {
-            projectContent = <Project>
-                {projects.map(item => (
-                    <ProjectItem key={item.node.name} itemObj={item.node}/>
-                ))}
-            </Project>
-        }
-
         return (
             <>
                 <Masthead isFront={true} title='Hi, I am Rendy,'>
@@ -89,7 +57,7 @@ class FrontPage extends React.Component {
                     </Experience>
                 </Section>
                 <Section id='project' title='Experimental Projects'>
-                    {projectContent}
+                    <Project api={this.state.githubApi}/>
                 </Section>
                 <Section id='activity' title='Summary Activity'>
                     <div className='text-center'>

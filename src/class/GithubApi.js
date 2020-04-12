@@ -1,7 +1,12 @@
 export default class GithubApi {
     userName = 'rendy44';
-    personalAccessToken = '86d14cc4135ded8d5eb24a3f65dabf0867485ea3';
+    personalAccessToken = '';
     endPoint = 'https://api.github.com/graphql';
+
+    constructor(userName,personalAccessToken) {
+        this.userName = userName;
+        this.personalAccessToken = personalAccessToken;
+    }
 
     getHeaders() {
         let requestHeaders = new Headers();

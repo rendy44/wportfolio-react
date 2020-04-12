@@ -1,14 +1,55 @@
 import React from "react";
 import './style.scss';
+import ReactLoading from "react-loading";
 
-function Project(props) {
-    return (
-        <div className='project-items-wrapper'>
-            <div className='frow'>
-                {props.children}
-            </div>
-        </div>
-    );
+class Project extends React.Component {
+    constructor(props) {
+        super(props);
+
+        // Init default state.
+        this.state = {
+            githubApi: this.props.api,
+            isLoaded: false,
+            projects: []
+        }
+    }
+
+    componentDidMount() {
+        const comp = this;
+        this.state.githubApi.getPinnedRepos()
+            .then(response => response.text())
+            .then(result => {
+                let resultObj = JSON.parse(result);
+
+                //Update state.
+                comp.setState({
+                    isLoaded: true,
+                    projects: resultObj.data.repositoryOwner.pinnedRepositories.edges
+                });
+            })
+            .catch(error => console.log('error', error));
+    }
+
+    render() {
+        const {projects, isLoaded} = this.state;
+        if (isLoaded) {
+            return (
+                <div className='project-items-wrapper'>
+                    <div className='frow'>
+                        {projects.map(item => (
+                            <ProjectItem key={item.node.name} itemObj={item.node}/>
+                        ))}
+                    </div>
+                </div>
+            );
+        } else {
+            return (
+                <div className='center-content'>
+                    <ReactLoading color='#a53484'/>
+                </div>
+            )
+        }
+    }
 }
 
 function ProjectItem(props) {
@@ -39,4 +80,5 @@ function ProjectLanguage(props) {
         </li>
     )
 }
+
 export {Project, ProjectItem, ProjectLanguage}
