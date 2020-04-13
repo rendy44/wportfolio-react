@@ -9,7 +9,7 @@ class Activity extends React.Component {
 
         // Init default state.
         this.state = {
-            githubApi: this.props.api,
+            apiGithub: this.props.api,
             isLoaded: false,
             activityTotal: 0,
             activityStart: '',
@@ -19,13 +19,11 @@ class Activity extends React.Component {
 
     componentDidMount() {
         const comp = this;
-        this.state.githubApi.getActivity()
+        this.state.apiGithub.getActivity()
             .then(response => response.text())
             .then(result => {
                 let resultObj = JSON.parse(result);
                 const {startedAt, endedAt, contributionCalendar} = resultObj.data.user.contributionsCollection;
-                console.log(startedAt);
-                console.log(endedAt);
 
                 //Update state.
                 comp.setState({
@@ -45,6 +43,8 @@ class Activity extends React.Component {
 
     render() {
         const {activityTotal, activityStart, activityEnd, isLoaded} = this.state;
+
+        // Make sure ajax is done.
         if (isLoaded) {
             return (
                 <div className='text-center'>

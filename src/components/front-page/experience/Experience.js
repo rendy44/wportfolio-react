@@ -13,9 +13,9 @@ function Experience(props) {
 
 function ExperienceItem(props) {
     let dateEnd = props.dateEnd ? props.dateEnd : 'Now';
-        let elmStyle = {
-            backgroundImage: `url(${props.companyLogo})`
-        };
+    let elmStyle = {
+        backgroundImage: `url(${props.companyLogo})`
+    };
 
     return (
         <div className='col-sm-1-2'>

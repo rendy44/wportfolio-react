@@ -32,6 +32,8 @@ class Project extends React.Component {
 
     render() {
         const {projects, isLoaded} = this.state;
+
+        // Make sure ajax is done.
         if (isLoaded) {
             return (
                 <div className='project-items-wrapper'>

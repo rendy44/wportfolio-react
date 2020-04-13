@@ -6,8 +6,10 @@ import Button from "../../global/button/Button";
 import {Specialization, SpecializationItem} from "../../front-page/specialization/Specialization";
 import {Experience, ExperienceItem} from "../../front-page/experience/Experience";
 import {Project} from "../../front-page/project/Project";
-import GithubApi from "../../../class/GithubApi";
+import ApiGithub from "../../../class/ApiGithub";
 import {Activity} from "../../front-page/activity/Activity";
+import ApiWordPress from "../../../class/ApiWordPress";
+import {RecentPost} from "../../front-page/recent/RecentPost";
 
 class FrontPage extends React.Component {
 
@@ -16,7 +18,8 @@ class FrontPage extends React.Component {
 
         // Define default states.
         this.state = {
-            githubApi: new GithubApi('rendy44', process.env.REACT_APP_GITHUB_KEY)
+            apiGithub: new ApiGithub('rendy44', process.env.REACT_APP_GITHUB_KEY),
+            apiWordPress: new ApiWordPress(process.env.REACT_APP_SITE_URL)
         }
     }
 
@@ -58,10 +61,16 @@ class FrontPage extends React.Component {
                     </Experience>
                 </Section>
                 <Section id='project' title='Experimental Projects'>
-                    <Project api={this.state.githubApi}/>
+                    <Project api={this.state.apiGithub}/>
                 </Section>
                 <Section id='activity' title='Summary Activity'>
-                    <Activity api={this.state.githubApi}/>
+                    <Activity api={this.state.apiGithub}/>
+                </Section>
+                <Section id='posts' title='Recent Posts'>
+                    <RecentPost api={this.state.apiWordPress}/>
+                    <div className='text-center'>
+                        <Button to='/posts'>All Posts</Button>
+                    </div>
                 </Section>
                 <Section id='contact' title='Get in Touch'>
                     <div className='text-center'>

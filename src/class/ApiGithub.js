@@ -1,4 +1,4 @@
-export default class GithubApi {
+export default class ApiGithub {
     userName = 'rendy44';
     personalAccessToken = '';
     endPoint = 'https://api.github.com/graphql';
