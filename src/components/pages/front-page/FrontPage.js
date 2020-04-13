@@ -63,6 +63,11 @@ class FrontPage extends React.Component {
                 <Section id='activity' title='Summary Activity'>
                     <Activity api={this.state.githubApi}/>
                 </Section>
+                <Section id='contact' title='Get in Touch'>
+                    <div className='text-center'>
+                        <p>If you have projects that need to be get started, you may need some help or just saying hey, let's get in touch.</p>
+                    </div>
+                </Section>
             </>
         );
     }
