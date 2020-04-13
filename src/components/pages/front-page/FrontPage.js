@@ -7,6 +7,7 @@ import {Specialization, SpecializationItem} from "../../front-page/specializatio
 import {Experience, ExperienceItem} from "../../front-page/experience/Experience";
 import {Project} from "../../front-page/project/Project";
 import GithubApi from "../../../class/GithubApi";
+import {Activity} from "../../front-page/activity/Activity";
 
 class FrontPage extends React.Component {
 
@@ -60,10 +61,7 @@ class FrontPage extends React.Component {
                     <Project api={this.state.githubApi}/>
                 </Section>
                 <Section id='activity' title='Summary Activity'>
-                    <div className='text-center'>
-                        <span className="activity-count" id="activity-count">881</span>
-                        <p>Total contributions between April 6, 2019, to April 12, 2020</p>
-                    </div>
+                    <Activity api={this.state.githubApi}/>
                 </Section>
             </>
         );
