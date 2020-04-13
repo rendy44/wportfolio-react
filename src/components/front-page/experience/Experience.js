@@ -23,7 +23,7 @@ function ExperienceItem(props) {
                 <div className="company-logo" style={elmStyle}></div>
                 <div className="experience-detail">
                     <h3 className="company-name">{props.companyName}
-                        <sup><a href={props.companyUrl} className="company-url" target="_blank">[?]</a></sup></h3>
+                        <sup><a href={props.companyUrl} className="company-url" target="_blank" rel='noopener noreferrer'>[?]</a></sup></h3>
                     <span className="experience-role">{props.role}</span>
                     <span className="company-location">{props.companyLocation}</span>
                     <span className="experience-period">{props.dateStart} - {dateEnd}</span>

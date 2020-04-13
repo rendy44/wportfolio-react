@@ -10,6 +10,7 @@ import ApiGithub from "../../../class/ApiGithub";
 import {Activity} from "../../front-page/activity/Activity";
 import ApiWordPress from "../../../class/ApiWordPress";
 import {RecentPost} from "../../front-page/recent/RecentPost";
+import {Contact, ContactItem} from "../../front-page/contact/Contact";
 
 class FrontPage extends React.Component {
 
@@ -75,6 +76,12 @@ class FrontPage extends React.Component {
                 <Section id='contact' title='Get in Touch'>
                     <div className='text-center'>
                         <p>If you have projects that need to be get started, you may need some help or just saying hey, let's get in touch.</p>
+                        <Contact>
+                            <ContactItem icon='mail-send-fill' to='mailto:hello@wperfekt.com'/>
+                            <ContactItem icon='whatsapp-fill' to='https://wa.me/6282219186349'/>
+                            <ContactItem icon='github-fill' to='https://github.com/rendy44'/>
+                            <ContactItem icon='linkedin-box-fill' to='https://www.linkedin.com/in/rendi-dwi-p-792576119'/>
+                        </Contact>
                     </div>
                 </Section>
             </>

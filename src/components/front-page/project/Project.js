@@ -61,7 +61,7 @@ function ProjectItem(props) {
     return (
         <div className="col-sm-1-2">
             <div className="project-item">
-                <a href={props.itemObj.url} target="_blank">
+                <a href={props.itemObj.url} target="_blank" rel='noopener noreferrer'>
                     <h3>{props.itemObj.name}</h3></a> <span className="forked"></span><p>{props.itemObj.description}</p>
                 <ul className="project-languages">
                     {languagesContent}

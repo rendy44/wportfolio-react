@@ -77,9 +77,4 @@ function PostItem(props) {
     )
 }
 
-function convertPostDate(str) {
-    let objDate = new Date(str);
-    return Helper.getMonthName(objDate.getMonth()) + ' ' + objDate.getDate() + ', ' + objDate.getFullYear();
-}
-
 export {RecentPost, PostItem};

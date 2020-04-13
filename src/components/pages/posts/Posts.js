@@ -5,6 +5,10 @@ import './style.scss'
 class Posts extends React.Component {
     constructor(props) {
         super(props);
+
+        this.state = {
+
+        }
     }
 
     componentDidMount() {
