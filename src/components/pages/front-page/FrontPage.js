@@ -24,6 +24,10 @@ class FrontPage extends React.Component {
         }
     }
 
+    componentDidMount() {
+        document.title = 'WPerfekt';
+    }
+
     render() {
         return (
             <>
