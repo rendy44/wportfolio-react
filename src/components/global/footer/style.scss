@@ -1,0 +1,30 @@
+@import "./src/assets/scss/style";
+
+footer.footer {
+  padding: 1.5rem 0;
+  background-color: darken($white_color, 5%);
+
+  p {
+    margin: 0;
+    font-size: 14px;
+    letter-spacing: 2px;
+
+    &.author {
+      margin-top: 1rem;
+      font-size: 12px;
+
+      a {
+        color: $base_color;
+        font-weight: 700;
+      }
+    }
+  }
+
+  &.footer-dark {
+    background-color: lighten($black_color, 30%);
+
+    p {
+      color: $white_color;
+    }
+  }
+}
