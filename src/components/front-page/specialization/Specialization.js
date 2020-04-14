@@ -1,5 +1,6 @@
 import React from "react";
 import './style.scss';
+import PropTypes from 'prop-types';
 
 function Specialization(props) {
     return (
@@ -23,5 +24,10 @@ function SpecializationItem(props) {
         </div>
     )
 }
+
+SpecializationItem.propTypes = {
+    icon: PropTypes.string,
+    title: PropTypes.string
+};
 
 export {Specialization, SpecializationItem};

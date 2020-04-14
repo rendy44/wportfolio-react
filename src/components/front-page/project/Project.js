@@ -1,6 +1,7 @@
 import React from "react";
 import './style.scss';
 import ReactLoading from "react-loading";
+import PropTypes, {string} from 'prop-types';
 
 class Project extends React.Component {
     constructor(props) {
@@ -82,5 +83,14 @@ function ProjectLanguage(props) {
         </li>
     )
 }
+
+ProjectItem.propTypes = {
+    itemObj: PropTypes.object,
+};
+
+ProjectLanguage.propTypes = {
+    name: PropTypes.string,
+    color: PropTypes.string,
+};
 
 export {Project, ProjectItem, ProjectLanguage}

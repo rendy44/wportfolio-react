@@ -1,7 +1,8 @@
 import React from "react";
 import './style.scss'
+import PropTypes from 'prop-types';
 
-export default function Button(props) {
+function Button(props) {
 
     // Define default state.
     let state = {
@@ -24,3 +25,9 @@ export default function Button(props) {
         );
     }
 }
+
+Button.propTypes = {
+    to: PropTypes.string
+};
+
+export default Button;

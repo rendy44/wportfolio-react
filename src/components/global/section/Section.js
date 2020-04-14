@@ -1,12 +1,12 @@
 import React from "react";
-import './style.scss'
+import './style.scss';
+import PropTypes from 'prop-types';
 
 class Section extends React.Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            id: this.props.id ? this.props.id : '',
             width: this.props.width ? this.props.width : 'col-sm-2-3',
         }
     }
@@ -26,5 +26,9 @@ class Section extends React.Component {
         );
     }
 }
+
+Section.propTypes = {
+    id: PropTypes.string
+};
 
 export default Section;

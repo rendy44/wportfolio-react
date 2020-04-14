@@ -1,5 +1,6 @@
 import React from "react";
 import './style.scss'
+import PropTypes from 'prop-types';
 
 class Masthead extends React.Component {
     constructor(props) {
@@ -36,5 +37,9 @@ class Masthead extends React.Component {
         )
     }
 }
+
+Masthead.propTypes = {
+    title: PropTypes.string
+};
 
 export default Masthead;

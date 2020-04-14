@@ -3,6 +3,7 @@ import './style.scss';
 import ReactLoading from "react-loading";
 import Helper from "../../../class/Helper";
 import {Link} from "react-router-dom";
+import PropTypes from 'prop-types';
 
 class RecentPost extends React.Component {
     constructor(props) {
@@ -76,5 +77,13 @@ function PostItem(props) {
         </div>
     )
 }
+
+PostItem.propTypes = {
+    thumbnail: PropTypes.string,
+    slug: PropTypes.string,
+    title: PropTypes.string,
+    excerpt: PropTypes.string,
+    date: PropTypes.string
+};
 
 export {RecentPost, PostItem};

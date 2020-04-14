@@ -1,5 +1,7 @@
 import React from "react";
 import './style.scss';
+import Masthead from "../../global/masthead/Masthead";
+import TopNav from "../../global/navbar/Navbar";
 
 class SinglePost extends React.Component {
     constructor(props) {
@@ -22,6 +24,8 @@ class SinglePost extends React.Component {
     render() {
         return (
             <>
+                <TopNav/>
+                <Masthead title='Oke juragan'/>
                 <p>Hey hey hey {this.state.slug}</p>
             </>
         );
