@@ -68,7 +68,7 @@ function PostItem(props) {
         <div className='col-sm-1-3'>
             <div className="blog-item">
                 <div className="thumbnail" style={thumbnailStyle}></div>
-                <Link to={'/p/' + props.slug}>
+                <Link to={props.slug}>
                     <h3>{props.title}</h3>
                 </Link>
                 <p className="excerpt">{Helper.stripTags(props.excerpt)}</p>
