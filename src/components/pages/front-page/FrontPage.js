@@ -73,9 +73,6 @@ class FrontPage extends React.Component {
                 </Section>
                 <Section id='posts' title='Recent Posts'>
                     <RecentPost api={this.state.apiWordPress}/>
-                    <div className='text-center'>
-                        <Button to='/posts'>All Posts</Button>
-                    </div>
                 </Section>
                 <Section id='contact' title='Get in Touch'>
                     <div className='text-center'>

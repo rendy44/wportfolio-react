@@ -8,16 +8,17 @@ class Section extends React.Component {
 
         this.state = {
             width: this.props.width ? this.props.width : 'col-sm-2-3',
+            className: this.props.className ? 'section ' + this.props.className : 'section',
         }
     }
 
     render() {
         return (
-            <section className='section' id={this.state.id}>
+            <section className={this.state.className} id={this.props.id}>
                 <div className='frow-container'>
                     <div className='frow'>
                         <div className={this.state.width}>
-                            <h2 className='section-title'>{this.props.title}</h2>
+                            {this.maybeGetSectionTitle()}
                             {this.props.children}
                         </div>
                     </div>
@@ -25,10 +26,23 @@ class Section extends React.Component {
             </section>
         );
     }
+
+    maybeGetSectionTitle() {
+        if (this.props.title) {
+            return (
+                <h2 className='section-title'>{this.props.title}</h2>
+            )
+        } else {
+            return (<></>)
+        }
+    }
 }
 
 Section.propTypes = {
-    id: PropTypes.string
+    className: PropTypes.string,
+    title: PropTypes.string,
+    width: PropTypes.string,
+    id: PropTypes.string.isRequired
 };
 
 export default Section;

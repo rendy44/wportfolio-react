@@ -4,6 +4,7 @@ import ReactLoading from "react-loading";
 import Helper from "../../../class/Helper";
 import {Link} from "react-router-dom";
 import PropTypes from 'prop-types';
+import Button from "../../global/button/Button";
 
 class RecentPost extends React.Component {
     constructor(props) {
@@ -30,23 +31,42 @@ class RecentPost extends React.Component {
                     posts: resultObj
                 });
             })
-            .catch(error => console.log('error', error));
+            .catch(error => {
+                //Update state.
+                comp.setState({
+                    isLoaded: true,
+                    error: error.toString()
+                });
+            });
     }
 
     render() {
-        const {isLoaded, posts} = this.state;
+        const {error, isLoaded, posts} = this.state;
 
         // Make sure ajax is done.
         if (isLoaded) {
-            return (
-                <div className='blog-items-wrapper'>
-                    <div className='frow'>
-                        {posts.map(post => (
-                            <PostItem key={post.id} slug={post.slug} title={post.title} date={post.date} excerpt={post.excerpt} thumbnail={post.thumbnail_url}/>
-                        ))}
+            if (error) {
+                return (
+                    <div className="text-center">
+                        <p>{error}</p>
                     </div>
-                </div>
-            )
+                )
+            } else {
+                return (
+                    <>
+                        <div className='blog-items-wrapper'>
+                            <div className='frow'>
+                                {posts.map(post => (
+                                    <PostItem key={post.id} slug={post.slug} title={post.title} date={post.date} excerpt={post.excerpt} thumbnail={post.thumbnail_url}/>
+                                ))}
+                            </div>
+                        </div>
+                        <div className='text-center'>
+                            <Button to='/posts'>All Posts</Button>
+                        </div>
+                    </>
+                )
+            }
         } else {
             return (
                 <div className='center-content'>
@@ -79,7 +99,7 @@ function PostItem(props) {
 }
 
 PostItem.propTypes = {
-    thumbnail: PropTypes.string,
+    thumbnail: PropTypes.any,
     slug: PropTypes.string,
     title: PropTypes.string,
     excerpt: PropTypes.string,

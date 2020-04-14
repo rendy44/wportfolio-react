@@ -39,6 +39,15 @@ a {
   text-align: center;
   justify-content: center;
   align-items: center;
+
+  &.full {
+    background-color: $white_color;
+    position: fixed;
+    top: 0;
+    height: 100vh;
+    width: 100%;
+    z-index: 2;
+  }
 }
 
 @include breakpoint($size_tablet) {
